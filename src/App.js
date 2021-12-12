@@ -1,30 +1,27 @@
-import ExpenseItem from "./components/ExpenseItem";
+import "./App.css";
+import NewExpenses from "./components/NewExpenses";
+import Expenses from "./components/Expenses";
+import { fireEvent } from "@testing-library/react";
+
+function addNewExpense(ExpenseData){
+    console.log('in app');
+    console.log(ExpenseData);
+
+}
+
+
 function App() {
-
-  const expenses = [{
-    date: new Date(2021, 12, 1),
-    title: "Shampoo",
-    amount: 5
-  },
-  {
-    date: new Date(2021, 11, 14),
-    title: "beer",
-    amount: 345
-  }]
   return (
+    <div>
+     
+
     <div className="App">
+    <NewExpenses AppaddExpense={addNewExpense}/>
+      <h2>expenseeeeeeeeeeeeeeeeeeeee</h2>
       <header className="App-header"></header>
-      <ExpenseItem
-      date={expenses[0].date}
-      amount={expenses[0].amount}
-      title={expenses[0].title}></ExpenseItem>
-      <ExpenseItem
-            date={expenses[1].date}
-            amount={expenses[1].amount}
-            title={expenses[1].title}></ExpenseItem>
-
-
+      <Expenses />
     </div>
+      </div>
   );
 }
 
