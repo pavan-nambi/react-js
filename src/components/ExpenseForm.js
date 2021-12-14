@@ -36,7 +36,7 @@ function ExpenseForm(props) {
     <form onSubmit={SubmitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label htmlFor="newExpenseTitle">title</label>
+          <label htmlFor="">title</label>
           <input type="text" id="newExpenseTitle" value={EnteredTitle} onChange={TitleHandler} />
         </div>
         <div className="new-expense__control">

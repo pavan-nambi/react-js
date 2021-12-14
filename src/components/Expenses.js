@@ -1,34 +1,18 @@
-
-// passing expenses to expense items  
+// passing expenses to expense items
 
 import ExpenseItem from "./ExpenseItem";
-import './Expenses.css';
+import "./Expenses.css";
 
-
-function Expenses() {
-    const expenses = [{
-        date: new Date(2021, 12, 1),
-        title: "Shampoo",
-        amount: 5
-      },
-      {
-        date: new Date(2021, 11, 14),
-        title: "beer",
-        amount: 345
-      }]
-    
+function Expenses(props) {
   return (
     <div className="expenses">
-      <ExpenseItem
-        date={expenses[0].date}
-        amount={expenses[0].amount}
-        title={expenses[0].title}
-      />
-      <ExpenseItem
-        date={expenses[1].date}
-        amount={expenses[1].amount}
-        title={expenses[1].title}
-      />
+      {props.expenses.map((expense) => (
+        <ExpenseItem
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        />
+      ))}
     </div>
   );
 }

@@ -1,27 +1,48 @@
 import "./App.css";
+import { useState } from "react";
 import NewExpenses from "./components/NewExpenses";
 import Expenses from "./components/Expenses";
-import { fireEvent } from "@testing-library/react";
 
-function addNewExpense(ExpenseData){
-    console.log('in app');
-    console.log(ExpenseData);
 
+const DummyExpenses = [{
+  title: "Shampoo",
+  date: new Date(2021, 12, 1),
+
+  amount: 5,
+
+},
+{
+  title: "beer",
+  date: new Date(2021, 11, 14),
+  amount: 345,
+
+},]
+
+const App=()=> {
+  
+const [expenses, setExpenses] = useState(DummyExpenses);
+
+
+const addNewExpense=(expense)=> {
+  console.log(expense);
+
+
+ setExpenses(prevExpenses=>{
+   console.log(prevExpenses);
+   return [expense,...prevExpenses];
+
+ });
+  
 }
-
-
-function App() {
   return (
     <div>
-     
-
-    <div className="App">
-    <NewExpenses AppaddExpense={addNewExpense}/>
-      <h2>expenseeeeeeeeeeeeeeeeeeeee</h2>
-      <header className="App-header"></header>
-      <Expenses />
-    </div>
+      <div className="App">
+        <NewExpenses AppaddExpense={addNewExpense} />
+       
+        {/* <header className="App-header"></header> */}
+        <Expenses expenses={expenses}/>
       </div>
+    </div>
   );
 }
 
