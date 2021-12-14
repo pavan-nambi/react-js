@@ -2,6 +2,7 @@
 // passing expenses to expense items  
 
 import ExpenseItem from "./ExpenseItem";
+import './Expenses.css';
 
 
 function Expenses() {
